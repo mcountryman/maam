@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "es2015",
+      "es2016",
+      "es2017"
+    ],
+    "module": "commonjs",
+    "target": "es5",
+    "baseUrl": ".",
+    "sourceMap": true,
+    "paths": {
+      "@maam/*": [
+        "packages/*",
+        "packages/src/*",
+        "../../packages/*",
+        "../../packages/src/*"
+      ]
+    },
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "exclude": ["node_modules"],
+  "references": [
+    { "path": "packages/app" },
+    { "path": "packages/app-common" },
+    { "path": "packages/app-frontend" }
+  ]
+}

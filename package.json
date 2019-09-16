@@ -1,0 +1,15 @@
+{
+  "name": "maam",
+  "author": "Marvin Countryman <me@maar.vin>",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "description": "",
+  "scripts": {},
+  "devDependencies": {
+    "lerna": "^3.16.3"
+  }
+}
