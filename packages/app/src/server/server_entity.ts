@@ -1,5 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { Client } from "socket.io";
+import { UserEntity } from "../user/user_entity";
 
 @Entity()
 export class ServerEntity {
@@ -17,6 +18,12 @@ export class ServerEntity {
    */
   @Column() 
   public type: string;
+
+  @Column()
+  public registered: boolean;
+
+  @Column()
+  public registeredBy: UserEntity;
   
   public sockets: Client[] = [];
 }
