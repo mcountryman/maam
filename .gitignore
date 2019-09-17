@@ -7,6 +7,10 @@
 *.crt
 # Databases
 *.db
+# Compiled
+dist/
+# Typescript Build
+*.tsbuildinfo
 
 ### Node ###
 # Logs

@@ -7,18 +7,12 @@
     "paths": {
       "@maam/*": [
         "packages/*",
-        "packages/src/*",
-        "../../packages/*",
-        "../../packages/src/*"
+        "../../packages/*"
       ]
     },
+    "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
-  "exclude": ["node_modules"],
-  "references": [
-    { "path": "packages/app" },
-    { "path": "packages/app-common" },
-    { "path": "packages/app-frontend" }
-  ]
+  "exclude": ["node_modules"]
 }

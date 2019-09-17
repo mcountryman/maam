@@ -1,0 +1,13 @@
+{
+  "name": "@maam/app-common",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^3.6.3"
+  }
+}
