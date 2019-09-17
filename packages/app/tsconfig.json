@@ -7,9 +7,19 @@
     ],
     "target": "es6",
     "baseUrl": ".",
+    "composite": true,
     
     "outDir": "dist",
     "rootDir": "src",
+    "sourceMap": true,
     "allowSyntheticDefaultImports": true
-  }
+  },
+  "exclude": [
+    "dist",
+    "node_modules"
+  ],
+  "references": [
+    { "path": "../app-common" },
+    { "path": "../app-frontend" }
+  ]
 }

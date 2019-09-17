@@ -1,10 +1,18 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import { IAuthEntity } from "@maam/app/src/auth/iauth_entity";
+import { AuthEntityType, IAuthEntity } from "../auth/iauth_entity";
 
 @Entity()
 export class UserEntity implements IAuthEntity {
+  public type: AuthEntityType = AuthEntityType.User;
+  
   @PrimaryGeneratedColumn("uuid")
   public id: string;
+
+  @Column("simple-json")
+  public ids: { [provider: string]: string } = {
+    steamID: "",
+    minecraftUUID: "",
+  };
 
   @Column()
   public name: string;
@@ -18,6 +26,6 @@ export class UserEntity implements IAuthEntity {
   @Column()
   public steamId: string;
 
-  @Column()
+  @Column("simple-array")
   public roles: string[];
 }

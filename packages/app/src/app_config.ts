@@ -1,3 +1,3 @@
-import { ConfigLoader } from "@maam/app/src/config/config_loader";
+import { ConfigLoader } from "./config/config_loader";
 
 export const AppConfig = ConfigLoader.load();

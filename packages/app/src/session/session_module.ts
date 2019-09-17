@@ -1,23 +1,16 @@
-import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
+import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
+import { SessionStore } from "./session_store";
 import { SessionEntity } from "./session_entity";
-import { SessionMiddleware } from "./session_middleware";
+import { SessionService } from "./session_service";
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([
-      SessionEntity,
-    ]),
+    TypeOrmModule.forFeature([SessionEntity]),
   ],
-  providers: [SessionMiddleware],
+  providers: [
+    SessionStore,
+    SessionService,
+  ],
 })
-export class SessionModule implements NestModule {
-
-  public configure(consumer: MiddlewareConsumer): any {
-    consumer
-      .apply(SessionMiddleware)
-      .forRoutes("*")
-    ;
-  }
-
-}
+export class SessionModule {}

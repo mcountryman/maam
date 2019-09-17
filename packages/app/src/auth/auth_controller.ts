@@ -1,4 +1,13 @@
-import { Body, Controller, Param, Post, Req, UnauthorizedException, UseGuards } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  HttpException, HttpStatus,
+  Param,
+  Post,
+  Req,
+  UnauthorizedException,
+  UseGuards
+} from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
 import { AuthService } from "./auth_service";
 import { ServerService } from "../server/server_service";
@@ -15,13 +24,13 @@ export class AuthController {
   public async authServer(
     @Req() request: any,
     @Body("apiKey") apiKey: string,
-  ): Promise<void> {
+  ): Promise<any> {
     const server = await this._serverService.findByApiKey(apiKey);
     if (!server) {
-      throw new UnauthorizedException();
+      return new HttpException("Unauthorized", HttpStatus.UNAUTHORIZED);
     }
 
-    await this._authService.authEntity(request, server);
+    return await this._authService.authEntity(request, server);
   }
 
   @UseGuards(AuthGuard("local"))
