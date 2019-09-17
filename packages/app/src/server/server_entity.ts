@@ -1,23 +1,24 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { Client } from "socket.io";
 import { UserEntity } from "../user/user_entity";
+import { IAuthEntity } from "../auth/iauth_entity";
 
 @Entity()
-export class ServerEntity {
+export class ServerEntity implements IAuthEntity {
   @PrimaryGeneratedColumn("uuid") 
   public id: string;
 
-  /**
-   * Display name
-   */
   @Column() 
   public name: string;
-  
-  /**
-   * Game name or server type
-   */
+
   @Column() 
   public type: string;
+
+  @Column()
+  public roles: string[];
+
+  @Column()
+  public apiKey: string;
 
   @Column()
   public registered: boolean;

@@ -1,5 +1,6 @@
 import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
 import { SessionEntity as ISession } from "typeorm-store";
+import { IAuthEntity } from "@maam/app/src/auth/iauth_entity";
 
 @Entity()
 export class SessionEntity implements ISession {
@@ -12,5 +13,5 @@ export class SessionEntity implements ISession {
   @Column()
   public expiresAt: number;
   
-  serverId?: string;
+  public entity?: IAuthEntity;
 }
